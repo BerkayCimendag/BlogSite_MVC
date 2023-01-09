@@ -27,7 +27,7 @@ namespace BlogSite_MVC.Controllers
 
             int sayfaAdet = (int)Math.Ceiling((double)gonderiler.Count() / Sabitler.SAYFA_BASINA_GONDERI);
 
-            gonderiler = gonderiler.Skip((sayfa-1) * Sabitler.SAYFA_BASINA_GONDERI).Take(Sabitler.SAYFA_BASINA_GONDERI);
+            gonderiler = gonderiler.OrderByDescending(x=>x.OlusturulmaZamani).Skip((sayfa-1) * Sabitler.SAYFA_BASINA_GONDERI).Take(Sabitler.SAYFA_BASINA_GONDERI);
 
             var vm = new HomeViewModel()
             {
